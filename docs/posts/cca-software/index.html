@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="" />
+    <style>
+@import "https://fonts.googleapis.com/css2?family=Inconsolata&display=swap";:root{--cursor-visibility:hidden}html,body{width:100%;height:100%;overflow:auto;font-family:inconsolata,monospace;font-size:4vmin;line-height:4.1vmin;font-weight:400}body{margin:0;display:flex;flex-direction:row;justify-content:center;align-items:center}#content{min-width:82vmin;min-height:82vmin}::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{border-radius:10px;box-shadow:inset 0 0 1px white}::-webkit-scrollbar-thumb{border-radius:10px;box-shadow:0 0 0 1px white}.cursor,#activity-title:after,#activity-content:after,#ps1_01:after,#cd:after,#ps1_02:after,#cat:after,#std_out_01:after,#ps1_03:after,#std_out_02:after,#ps1_04:after{visibility:var(--cursor-visibility);content:"|";overflow:hidden;color:#fff;animation:blink 500ms linear infinite alternate}@keyframes blink{0%{opacity:0}100%{opacity:1}}@media only screen and (min-width:768px){body{font-size:2.5vmin;line-height:2.6vmin}#content{min-width:60vmin}}:root{--cursor-visibility:hidden}body{align-items:unset;overflow-y:scroll}#content{max-width:80vmin}pre{overflow-x:scroll;white-space:pre}@keyframes blink{0%{opacity:0}100%{opacity:1}}
+
+
+
+
+
+
+
+
+
+
+body{background:#1b1d1e}body #terminal{color:#bbb}body #user{color:#23e298}body #dir{color:#d08010}body .Typewriter__cursor{color:#bbb}a{color:#bbb}</style>
+
+</head><body><div id="content">
+    
+    
+    
+
+
+    <span id="activity-title"></span> <br>
+ <span id="activity-content"></span> <br>
+
+<script type="text/javascript">
+    async function typewriter(text, elementId, waitAfter) {
+        var n = 0,
+            isTag = false
+        addText = "";
+        const el = document.getElementById(elementId);
+
+        const wait = () => new Promise(r => setTimeout(r, waitAfter));
+        const nowait = () => new Promise(r => r());
+
+        const render = () => el.innerHTML = (text.slice(0, n + 1) + addText);
+
+        const cursor = document.createElement('span');
+        cursor.id = "blink";
+
+        el.style.setProperty("--cursor-visibility", "visible");
+        while (n < text.length) {
+            if (text.charAt(n + 1) === "<") isTag = true;
+            if (text.charAt(n + 1) === ">") isTag = false;
+
+            if (isTag) {
+                n++;
+                continue;
+            }
+
+            requestAnimationFrame(render);
+
+            if (waitAfter === 0) {
+                await nowait();
+            } else {
+                await wait();
+            }
+
+            n++;
+        }
+        el.style.setProperty("--cursor-visibility", "collapse");
+    }
+
+    function parseDelay(d) {
+        const parsed = parseInt(d, 10);
+        if (isNaN(parsed)) return 0;
+        return parsed;
+    }
+
+    const titleDelay = parseDelay("10"),
+        contentDelay = parseDelay("15");
+    const typeeffetct = async () => {
+        await typewriter("\u003cspan id=\u0027terminal\u0027\u003e\u003ch1 id=\u0027title\u0027\u003e\u003c\/h1\u003e\u003c\/span\u003e", "activity-title", titleDelay);
+        await typewriter("\u003cspan id=\u0027terminal\u0027\u003e\u003ch2 id=\u0022title-it-specialist--full-stack-operations-and-development\u0022\u003eTitle: IT Specialist – Full Stack Operations and Development\u003c\/h2\u003e\n\u003ch3 id=\u0022company-cca-software-pty-ltd-2008---present\u0022\u003eCompany: CCA Software Pty Ltd (2008 - Present)\u003c\/h3\u003e\n\u003ch3 id=\u0022overview\u0022\u003eOverview:\u003c\/h3\u003e\n\u003cp\u003eI am an IT Specialist with over 13 years of experience at CCA Software Pty Ltd. Starting as a Tech and Customer Support Specialist for mainframe and third-party products, I advanced through the ranks to handle complex system and software management. My knowledge and skills, which are self-taught and developed through self-directed learning outside of work hours, demonstrate my commitment to personal and professional growth. I now hold a comprehensive role that encompasses website development, Linux system administration, security, DevOps, and scripting.\u003c\/p\u003e\n\u003ch3 id=\u0022key-responsibilities\u0022\u003eKey Responsibilities:\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eInitial Role:\u003c\/strong\u003e Provided comprehensive technical support for mainframe systems and third-party software products, ensuring optimal operation and user satisfaction.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eSystem Administration:\u003c\/strong\u003e Managed and optimised various Linux distributions and provided support for less common Unix environments.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eWebsite Development:\u003c\/strong\u003e Designed, developed, and maintained websites; managed web servers and version control systems.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eSecurity Implementation:\u003c\/strong\u003e Enhanced system security using advanced tools and conducted regular system audits.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eDevOps Integration:\u003c\/strong\u003e Automated deployment and management processes using modern DevOps tools, enhancing CI\/CD pipelines.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eScripting and Automation:\u003c\/strong\u003e Authored and maintained scripts to automate system administration tasks, reducing manual workload.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eMonitoring and Logging:\u003c\/strong\u003e Implemented monitoring and log analysis tools to maintain system health and security.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eVirtualisation and Cloud Solutions:\u003c\/strong\u003e Managed virtualisation efforts and developed cloud-based solutions incorporating best practices.\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch3 id=\u0022detailed-skills--technologies\u0022\u003eDetailed Skills \u0026amp; Technologies:\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eOperating Systems \u0026amp; Environments:\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eLinux (Expert):\u003c\/strong\u003e Ubuntu, CentOS, Debian, Fedora, Red Hat Enterprise Linux\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eUnix (Competent):\u003c\/strong\u003e Solaris, HP\/UX\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eVirtual and Cloud Environments (Knowledgeable):\u003c\/strong\u003e Azure, VMware, Hyper-V, KVM\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eProgramming \u0026amp; Scripting:\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eBash (Proficient):\u003c\/strong\u003e Scripting for automation and system management\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003ePython (Proficient):\u003c\/strong\u003e Automation scripts, tool development, and system tasks\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003ePowerShell (Proficient):\u003c\/strong\u003e Windows-based automation\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eC# (Intermediate):\u003c\/strong\u003e Development of desktop applications and backend services\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eWeb Technologies (Proficient):\u003c\/strong\u003e HTML, CSS, JavaScript for web development\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNetworking \u0026amp; Security:\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eNetwork Setup and Security Protocols (Skilled):\u003c\/strong\u003e Configuration and management of network security\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eDNS, DHCP (Experienced):\u003c\/strong\u003e Setup and troubleshooting\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eiptables (Experienced):\u003c\/strong\u003e Firewall configurations and security enhancements\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eData Management:\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eMySQL, PostgreSQL (Adept):\u003c\/strong\u003e Database setup, management, and optimisation\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eFile Systems (Experienced):\u003c\/strong\u003e Management of ext4, XFS, Btrfs\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eProject \u0026amp; Documentation Management:\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eJira, GitHub (Strong):\u003c\/strong\u003e Project tracking, version control, and clear documentation\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eTechnologies and Tools:\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eContainerisation and Orchestration:\u003c\/strong\u003e Docker, Kubernetes\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eContinuous Integration:\u003c\/strong\u003e Jenkins\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eNetwork Monitoring:\u003c\/strong\u003e Nagios, sabbix\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eLog Analysis:\u003c\/strong\u003e Logwatch, Splunk\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eWeb Servers:\u003c\/strong\u003e Apache, Nginx, Lighttpd\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eVersion Control:\u003c\/strong\u003e GIT, SVN\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eSystem Utilities:\u003c\/strong\u003e YUM, APT, pacman, find, grep, sed, awk, vi\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch3 id=\u0022github-repositories-demonstrating-automation-skills\u0022\u003eGitHub Repositories Demonstrating Automation Skills:\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e\u003ca href=\u0022https:\/\/github.com\/grahfmusic\/autoJSMreport\u0022\u003eautoJSMreport\u003c\/a\u003e:\u003c\/strong\u003e This repository contains a script for automating Jira reports, featuring extensive log file outputs, error handling, and modular configuration.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e\u003ca href=\u0022https:\/\/github.com\/grahfmusic\/issueguardian\u0022\u003eissueguardian\u003c\/a\u003e:\u003c\/strong\u003e A tool for monitoring unassigned logs with extensive log file outputs, robust error handling, and modular configuration.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e\u003ca href=\u0022https:\/\/github.com\/grahfmusic\/pacheco-pony-bot\u0022\u003epacheco-pony-bot\u003c\/a\u003e:\u003c\/strong\u003e A script functioning as a bot that automates navigating through a website and inputting data automatically into fields, including extensive log file outputs and error handling.\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch3 id=\u0022professional-development\u0022\u003eProfessional Development:\u003c\/h3\u003e\n\u003cp\u003eI am committed to continuous learning, staying ahead of the latest trends in technology, security threats, and DevOps methodologies. I regularly update my skills in hardware maintenance, software packaging, and system troubleshooting to ensure robust infrastructure management.\u003c\/p\u003e\n\u003ch3 id=\u0022conclusion\u0022\u003eConclusion:\u003c\/h3\u003e\n\u003cp\u003eMy diverse skill set and progressive responsibilities at CCA Software Pty Ltd have equipped me to effectively manage and innovate across a broad spectrum of IT disciplines. My role is pivotal in aligning technological solutions with business objectives, driving productivity, and ensuring system reliability and security.\u003c\/p\u003e\n\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003e\nAdding these GitHub links directly into your Markdown-formatted resume not only provides tangible evidence of your skills but also makes it easy for potential\n\u003c\/code\u003e\u003c\/pre\u003e\u003c\/span\u003e", "activity-content", contentDelay);
+        return;
+    }
+
+    typeeffetct()
+</script>
+
+        </div></body>
+</html>
